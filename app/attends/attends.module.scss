@@ -1,0 +1,371 @@
+@import '../../global.scss';
+$page-bg: linear-gradient(to bottom right, #f8fafc, #e2e8f0);
+$card-bg: linear-gradient(to bottom right, #ffffff, #f9f9f9);
+$primary-color: #4f46e5;
+$secondary-color: #1e293b;
+$text-color: #1f2937;
+$accent-color: #eab308;
+$border-radius: 12px;
+$shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+$shadow-hover: 0 6px 18px rgba(0, 0, 0, 0.15);
+
+.attends {
+    width: 100%;
+
+    .attends_top {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .left {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+
+            .title {
+                font-size: 1.6rem;
+                font-weight: 700;
+                color: #393737;
+            }
+
+            .duration {
+                position: relative;
+                width: fit-content;
+
+                select {
+                    appearance: none;
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    background: #fff;
+                    border: 1px solid #ccc;
+                    border-radius: 0.5rem;
+                    padding: 0.6rem 2rem 0.6rem 1rem;
+                    font-size: 1rem;
+                    font-weight: 500;
+                    color: #333;
+                    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+                    cursor: pointer;
+                    transition: all 0.25s ease;
+
+                    &:hover {
+                        border-color: #888;
+                    }
+
+                    &:focus {
+                        outline: none;
+                        border-color: #007bff;
+                        box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+                    }
+
+                    option {
+                        color: #333;
+                        background: #fff;
+                        font-weight: 500;
+                    }
+                }
+
+                // Custom arrow
+                &::after {
+                    content: "";
+                    position: absolute;
+                    top: 50%;
+                    right: 1rem;
+                    width: 0.5rem;
+                    height: 0.5rem;
+                    border-left: 2px solid #666;
+                    border-bottom: 2px solid #666;
+                    transform: translateY(-50%) rotate(-45deg);
+                    pointer-events: none;
+                }
+            }
+
+            .search {
+                width: 150px;
+
+                input {
+                    width: 100%;
+                    appearance: none;
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    background: #fff;
+                    border: 1px solid #ccc;
+                    border-radius: 0.5rem;
+                    padding: 0.6rem 2rem 0.6rem 1rem;
+                    font-size: 1rem;
+                    font-weight: 500;
+                    color: #333;
+                    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+                    transition: all 0.25s ease;
+
+                    &:hover {
+                        border-color: #888;
+                    }
+
+                    &:focus {
+                        outline: none;
+                        border-color: #007bff;
+                        box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+                    }
+                }
+            }
+        }
+
+
+
+        .right {
+            .navigations {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.75rem; // more consistent than margin-right
+
+                .navigation {
+                    padding: 0.5rem 1rem;
+                    border: 1px solid #aaa;
+                    border-radius: 999px; // pill shape
+                    cursor: pointer;
+                    font-size: 0.95rem;
+                    font-weight: 600;
+                    color: #555;
+                    background: #fff;
+                    transition: all 0.3s ease;
+                    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+
+                    &:hover {
+                        background: #f5f5f5;
+                        border-color: #666;
+                        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                    }
+
+                    &.active {
+                        background: $mainColor; // use your brand color
+                        color: #fff;
+                        border-color: $mainColor;
+                        box-shadow: 0 4px 12px rgba($mainColor, 0.5);
+                    }
+                }
+            }
+
+            .duration {
+                select {
+                    border: 2px solid $text-color;
+                    padding: 15px;
+                }
+            }
+        }
+
+    }
+
+    .content {
+        width: 100%;
+
+        .analytics {
+            width: 100%;
+            margin-top: 20px;
+
+            .ana_content {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                gap: 20px;
+            }
+
+            .item {
+                flex: 1 1 calc(25% - 20px);
+                background: $card-bg;
+                border-radius: $border-radius;
+                box-shadow: $shadow;
+                padding: 24px;
+                text-align: center;
+                transition: transform 0.2s ease, box-shadow 0.2s ease;
+                min-width: 200px;
+
+                &:hover {
+                    transform: translateY(-4px);
+                    box-shadow: $shadow-hover;
+                }
+
+                .title {
+                    font-size: 18px;
+                    font-weight: 600;
+                    color: $text-color;
+                    margin-bottom: 12px;
+                }
+
+                .idadi {
+                    font-size: 32px;
+                    font-weight: 700;
+                    color: $primary-color;
+                }
+            }
+
+            // Loading style (optional shimmer or skeleton)
+            .ana_content.loading {
+                .item {
+                    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+                    background-size: 200% 100%;
+                    animation: shimmer 1.5s infinite linear;
+                    height: 100px;
+                    border-radius: $border-radius;
+                }
+            }
+
+            @keyframes shimmer {
+                0% {
+                    background-position: -200% 0;
+                }
+
+                100% {
+                    background-position: 200% 0;
+                }
+            }
+        }
+
+
+        .loader {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50vh;
+            width: 100%;
+
+            .spinner {
+                font-size: 32px;
+                color: $mainColor;
+                animation: spin 1s linear infinite;
+
+                @keyframes spin {
+                    to {
+                        transform: rotate(360deg);
+                    }
+                }
+            }
+        }
+
+        .perfomers {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-top: 20px;
+
+            .top_performer_card {
+                width: 24%;
+                //max-width: 300px;
+                background: $card-bg;
+                border-radius: $border-radius;
+                box-shadow: $shadow;
+                padding: 24px;
+                text-align: center;
+                transition: transform 0.2s ease, box-shadow 0.2s ease;
+                margin-right: 10px;
+                margin-bottom: 10px;
+
+                &:hover {
+                    transform: translateY(-4px);
+                    box-shadow: $shadow-hover;
+                }
+
+                .avatar_container {
+                    position: relative;
+                    width: 96px;
+                    height: 96px;
+                    margin: 0 auto 16px;
+
+                    .avatar {
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 50%;
+                        object-fit: cover;
+                        border: 4px solid $primary-color;
+                    }
+
+                    .star_icon {
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        background: $accent-color;
+                        color: white;
+                        border-radius: 50%;
+                        padding: 6px;
+                    }
+                }
+
+                h3 {
+                    font-size: 20px;
+                    font-weight: 600;
+                    color: $text-color;
+                    margin-bottom: 8px;
+                }
+
+                .category {
+                    font-size: 16px;
+                    color: #64748b;
+                    text-transform: capitalize;
+                    margin-bottom: 12px;
+                }
+
+                .score {
+                    font-size: 18px;
+                    font-weight: 700;
+                    color: $primary-color;
+                    margin-bottom: 8px;
+                }
+
+                .stats {
+                    font-size: 14px;
+                    color: #64748b;
+                }
+            }
+        }
+
+        .pagination {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .pagination_content {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px; // more flexible spacing
+
+                .page {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    min-width: 40px;
+                    height: 40px;
+                    padding: 0 12px;
+                    border-radius: 50%;
+                    background: #f0f0f0;
+                    color: #333;
+                    font-weight: 500;
+                    font-size: 16px;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+
+                    &:hover {
+                        background: lighten($mainColor, 30%);
+                        color: $mainColor;
+                        transform: translateY(-2px);
+                        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+                    }
+
+                    &.active {
+                        background: $mainColor;
+                        color: #fff;
+                        font-weight: 700;
+                        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+                        transform: translateY(-2px);
+                    }
+                }
+            }
+        }
+
+    }
+}
