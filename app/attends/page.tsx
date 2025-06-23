@@ -7,10 +7,8 @@ import { FaSpinner, FaStar } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
 function Attends() {
-    const [error, setError] = useState<string | null>(null);
-    const [page, setPage] = useState(1);
+    const [page] = useState(1);
     const [pagesize] = useState(10);
-    const [totalPages, setTotalPages] = useState(1);
     const categories = [
         {
             key: "All",
@@ -39,19 +37,11 @@ function Attends() {
         page: 1,
         name: ""
     })
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: { staggerChildren: 0.1 },
-        },
-    };
 
     const itemVariants = {
         hidden: { y: 20, opacity: 0 },
         visible: { y: 0, opacity: 1 },
     };
-    const { data, loading: docLoading } = useFetch("http://localhost:5000/doctors/get_doctors", { page, pagesize })
     const { data: perfomers, loading: perfLoading } = useFetch("http://localhost:5000/attend-new/top-performers", { duration: fields.duration, stage: fields.stage,page: fields.page, name: fields.name })
     return (
         <div className={styles.attends}>

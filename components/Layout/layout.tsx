@@ -18,7 +18,7 @@ function LayoutComponent({children}:any) {
         <div className={styles.wrapper}>
             <div className={cx(styles.menu,isMenu && styles.isMenu)}>
                 <div className={styles.menu_header}>
-                  <h2>{isMenu ? 'M' : 'MedQ'}</h2>
+                  <h2>{isMenu ? 'Q' : 'Queue'}</h2>
                 </div>
                 <ul>
                     <li className={cx(router ==="/" && styles.active)}>
@@ -27,21 +27,15 @@ function LayoutComponent({children}:any) {
                           {!isMenu && <span>Dashboard</span>}
                         </Link>
                     </li>
-                    <li className={cx(router ==="/attendants" && styles.active)}>
-                        <Link href="/attendants" className={styles.menu_link}>
+                    <li className={cx(router ==="/attends" && styles.active)}>
+                        <Link href="/attends" className={styles.menu_link}>
                           <FaUsers className={styles.icon} size={24}/>
                           {!isMenu && <span>Attendants</span>}
                         </Link>
                     </li>
-                    <li className={cx(router ==="/attends" && styles.active)}>
-                        <Link href="/attends" className={styles.menu_link}>
-                          <FaUsers className={styles.icon} size={24}/>
-                          {!isMenu && <span>Attends</span>}
-                        </Link>
-                    </li>
                 </ul>
                 <div className={styles.menu_footer}>
-                  {!isMenu && <p>MedQ v1.0</p>}
+                  {!isMenu && <p>Queue v1.0</p>}
                 </div>
             </div>
             <div className={cx(styles.children,isMenu && styles.isMenu)}>
