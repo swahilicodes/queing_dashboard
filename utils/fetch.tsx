@@ -5,7 +5,7 @@ type Params = Record<string, string | number | boolean | undefined>;
 type Method = 'GET' | 'POST' | 'PUT' | 'DELETE';
 
 function buildUrl(baseUrl: string, params?: Params, method?: Method): string {
-  const url = new URL(baseUrl, typeof window !== 'undefined' ? window.location.origin : 'http://localhost');
+  const url = new URL(baseUrl, typeof window !== 'undefined' ? window.location.origin : 'http://192.168.30.246');
   Object.entries(params || {}).forEach(([key, value]) => {
     if (value !== undefined) {
       url.searchParams.append(key, String(value));

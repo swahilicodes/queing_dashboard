@@ -42,7 +42,7 @@ function Attends() {
         hidden: { y: 20, opacity: 0 },
         visible: { y: 0, opacity: 1 },
     };
-    const { data: perfomers, loading: perfLoading } = useFetch("http://localhost:5000/attend-new/top-performers", { duration: fields.duration, stage: fields.stage,page: fields.page, name: fields.name })
+    const { data: perfomers, loading: perfLoading } = useFetch("http://192.168.30.246:5000/attend-new/top-performers", { duration: fields.duration, stage: fields.stage,page: fields.page, name: fields.name })
     return (
         <div className={styles.attends}>
             <div className={styles.attends_top}>
