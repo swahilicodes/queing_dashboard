@@ -13,6 +13,21 @@ import useMenuStore from '@/store/atoms/isMenu';
 function LayoutComponent({children}:any) {
  const {isMenu, openMenu,closeMenu} = useMenuStore()
  const router = usePathname()
+
+ function getGreeting(): string {
+  const currentHour = new Date().getHours();
+
+  if (currentHour < 12) {
+    return "Good morning";
+  } else if (currentHour < 17) {
+    return "Good afternoon";
+  } else if (currentHour < 20) {
+    return "Good evening";
+  } else {
+    return "Good night";
+  }
+}
+
   return (
     <div className={styles.layout_component}>
         <div className={styles.wrapper}>
@@ -47,8 +62,8 @@ function LayoutComponent({children}:any) {
                     </div>
                     <div className={styles.right}>
                         <div className={styles.user_info}>
-                            <div className={styles.greeting}>Good Morning</div>
-                            <div className={styles.username}>Hawa Juma</div>
+                            <div className={styles.greeting}>{getGreeting()}</div>
+                            <div className={styles.username}>Mamc User</div>
                         </div>
                         <div className={styles.user_avatar} style={{backgroundImage:`url(./placeholder.jpg)`}}></div>
                         <button className={styles.logout_button}>

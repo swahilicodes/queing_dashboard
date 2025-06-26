@@ -19,10 +19,10 @@ export default function Home() {
     end_date: "",
     status: "all"
   });
-  const { data, loading, error } = useFetch("http://localhost:5000/sales-analytics/sales_analytics",
+  const { data, loading, error } = useFetch("http://192.168.30.246:5000/new_analytics/token_stats",
     { duration, start_date: fields.start_date, end_date: fields.end_date, status: fields.status }
   );
-  const { data: barData, loading: barLoading, error: barError } = useFetch("http://localhost:5000/sales-analytics/sales_analytics",
+  const { data: barData, loading: barLoading, error: barError } = useFetch("http://192.168.30.246:5000/token-hour/token_count_per_hour",
     { duration, start: fields.start_date, end: fields.end_date, status: fields.status });
 
   function round(num: number): number {
